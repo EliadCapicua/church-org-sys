@@ -1,0 +1,59 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+	"organizeImports": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"complexity": {
+				"noForEach": "off",
+				"noUselessFragments": "off"
+			},
+			"correctness": {
+				"useExhaustiveDependencies": "warn"
+			},
+			"style": {
+				"useConsistentArrayType": {
+					"level": "error",
+					"options": {
+						"syntax": "shorthand"
+					}
+				},
+				"useNamingConvention": {
+					"level": "off",
+					"options": {
+						"strictCase": false
+					}
+				},
+				"useNodejsImportProtocol": "off",
+				"noParameterAssign": "error"
+			},
+			"suspicious": {
+				"noThenProperty": "off",
+				"noArrayIndexKey": "off"
+			}
+		}
+	},
+	"formatter": {
+		"enabled": true,
+		"ignore": [
+			"node_modules/*",
+			"test-results/*",
+			"playwright-report/*",
+			"coverage/*",
+			"*.config.*",
+			"tsconfig.json",
+			".turbo",
+			".husky",
+			"test-report",
+			".cache"
+		]
+	},
+	"javascript": {
+		"parser": {
+			"unsafeParameterDecoratorsEnabled": true
+		}
+	}
+}

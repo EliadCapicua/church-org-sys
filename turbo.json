@@ -14,13 +14,11 @@
       "cache": false,
       "persistent": false
     },
-    "format": {
-      "outputs": [".cache/.prettiercache"],
-      "outputLogs": "new-only"
+    "format-and-lint": {
+      "dependsOn": ["^topo"]
     },
-    "lint": {
-      "dependsOn": ["^topo", "^build"],
-      "outputs": [".cache/.eslintcache"]
+    "format-and-lint:fix": {
+      "dependsOn": ["^topo"]
     },
     "typecheck": {
       "dependsOn": ["^topo", "^build"],

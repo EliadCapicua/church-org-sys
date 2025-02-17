@@ -10,13 +10,13 @@ interface PackageJson {
 
 export default function generator(plop: PlopTypes.NodePlopAPI): void {
   plop.setGenerator("init", {
-    description: "Generate a new package for the Acme Monorepo",
+    description: "Generate a new package for the steppingsbs Monorepo",
     prompts: [
       {
         type: "input",
         name: "name",
         message:
-          "What is the name of the package? (You can skip the `@acme/` prefix)",
+          "What is the name of the package? (You can skip the `@steppingsbs/` prefix)",
       },
       {
         type: "input",
@@ -28,16 +28,16 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
     actions: [
       (answers) => {
         if ("name" in answers && typeof answers.name === "string") {
-          if (answers.name.startsWith("@acme/")) {
-            answers.name = answers.name.replace("@acme/", "");
+          if (answers.name.startsWith("@steppingsbs/")) {
+            answers.name = answers.name.replace("@steppingsbs/", "");
           }
         }
         return "Config sanitized";
       },
       {
         type: "add",
-        path: "packages/{{ name }}/eslint.config.js",
-        templateFile: "templates/eslint.config.js.hbs",
+        path: "packages/{{ name }}/biome.json",
+        templateFile: "templates/biome.json.hbs",
       },
       {
         type: "add",
@@ -62,7 +62,7 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
             const pkg = JSON.parse(content) as PackageJson;
             for (const dep of answers.deps.split(" ").filter(Boolean)) {
               const version = await fetch(
-                `https://registry.npmjs.org/-/package/${dep}/dist-tags`,
+                `https://registry.npmjs.org/-/package/${dep}/dist-tags`
               )
                 .then((res) => res.json())
                 .then((json) => json.latest);
@@ -79,13 +79,9 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
          * Install deps and format everything
          */
         if ("name" in answers && typeof answers.name === "string") {
-          // execSync("pnpm dlx sherif@latest --fix", {
-          //   stdio: "inherit",
-          // });
-          execSync("pnpm i", { stdio: "inherit" });
-          execSync(
-            `pnpm prettier --write packages/${answers.name}/** --list-different`,
-          );
+          execSync("pnpm lint:ws:fix", { stdio: "inherit" });
+          execSync("pnpm install", { stdio: "inherit" });
+          execSync(`pnpm -F ${answers.name} format-and-lint:fix`);
           return "Package scaffolded";
         }
         return "Package not scaffolded";
