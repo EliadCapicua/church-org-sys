@@ -1,2 +1,16 @@
-npm run test:coverage
-npm run lint
+# Run typecheck and build
+echo "Running typecheck using turbo"
+pnpm turbo typecheck
+
+# Run lint on staged files
+echo "Running lint-staged..."
+pnpm lint-staged
+
+# lint
+echo "Running sheriff..."
+pnpm lint:ws
+
+# check domain
+python3 check_domain.py
+
+echo "Pre-commit checks passed! 🎉"
