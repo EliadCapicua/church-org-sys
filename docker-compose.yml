@@ -1,0 +1,43 @@
+name: org-iafcj
+services:
+  postgres:
+    image: postgres:16
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: iafcj
+    ports:
+      - "5432:5432"
+      - "5433:5432"
+
+  postgres_test:
+    image: postgres:16
+    volumes:
+      - postgres_data_test:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: iafcj_test
+    ports:
+      - "5445:5432"
+
+  localstack:
+    image: localstack/localstack
+    ports:
+      - "4566:4566"
+    environment:
+      DEBUG: 1
+      EXTRA_CORS_ALLOWED_ORIGINS: http://localhost:3000
+      SERVICES: s3
+      AWS_DEFAULT_REGION: us-east-1
+    volumes:
+      - localstack_data:/var/lib/localstack/data
+      - ./apps/terraform/init-localstack.sh:/etc/localstack/init/ready.d/init-localstack.sh
+      - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+  postgres_data: {}
+  postgres_data_test: {}
+  localstack_data: {}

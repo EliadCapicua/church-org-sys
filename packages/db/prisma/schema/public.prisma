@@ -1,0 +1,101 @@
+model Country {
+    id      Int       @id @default(autoincrement())
+    name    String
+    states  State[]
+    Address Address[]
+
+    @@schema("public")
+}
+
+model State {
+    id        Int       @id @default(autoincrement())
+    name      String
+    countryId Int
+    country   Country   @relation(fields: [countryId], references: [id])
+    cities    City[]
+    Address   Address[]
+
+    @@schema("public")
+}
+
+model City {
+    id      Int       @id @default(autoincrement())
+    name    String
+    stateId Int
+    state   State     @relation(fields: [stateId], references: [id])
+    Address Address[]
+
+    @@schema("public")
+}
+
+enum Language {
+    ARABIC
+    BASHKIR
+    BENGALI
+    BOSNIAN
+    BURMESE
+    CATALAN
+    CHINESE
+    CROATIAN
+    CZECH
+    DARI
+    DANISH
+    DUTCH
+    ENGLISH
+    ESTONIAN
+    FILIPINO
+    FINNISH
+    FRENCH
+    GALICIAN
+    GERMAN
+    GREEK
+    HINDI
+    HUNGARIAN
+    INDONESIAN
+    IRISH
+    ITALIAN
+    JAPANESE
+    JAVANESE
+    KAZAKH
+    KHMER
+    KOREAN
+    KURDISH
+    KYRGYZ
+    LAO
+    LATVIAN
+    LITHUANIAN
+    MACEDONIAN
+    MALAY
+    MALTESE
+    MONGOLIAN
+    MONTENEGRIN
+    NEPALI
+    NORWEGIAN
+    PASHTO
+    PERSIAN
+    POLISH
+    PORTUGUESE
+    PUNJABI
+    ROMANIAN
+    RUSSIAN
+    SERBIAN
+    SINDHI
+    SINHALESE
+    SLOVENIAN
+    SPANISH
+    SUNDA
+    SWEDISH
+    TATAR
+    TAJIK
+    THAI
+    TIBETAN
+    TURKISH
+    TURKMEN
+    UIGHUR
+    UKRAINIAN
+    URDU
+    UZBEK
+    VIETNAMESE
+
+    @@schema("public")
+}

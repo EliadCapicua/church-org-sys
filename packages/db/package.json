@@ -21,24 +21,31 @@
   "scripts": {
     "build": "tsc",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "create-only": "pnpm with-env prisma migrate dev --create-only --name",
+    "deploy": "pnpm with-env prisma migrate deploy",
     "dev": "tsc",
     "format-and-lint": "biome check ./src",
-    "push": "pnpm with-env drizzle-kit push",
-    "studio": "pnpm with-env drizzle-kit studio",
+    "generate": "pnpm with-env prisma generate",
+    "postinstall": "pnpm generate",
+    "migrate": "pnpm with-env prisma migrate dev --name",
+    "rollback": "pnpm with-env prisma migrate resolve dev --rolled-back",
+    "status": "pnpm with-env prisma migrate status",
+    "studio": "pnpm with-env prisma studio --port 5556",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false",
+    "up": "docker compose up postgres postgres_test localstack -d",
     "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
+    "@prisma/client": "^6.3.1",
     "@vercel/postgres": "^0.10.0",
-    "drizzle-orm": "^0.38.4",
-    "drizzle-zod": "^0.6.1",
     "zod": "catalog:"
   },
   "devDependencies": {
     "@acme/tsconfig": "workspace:*",
     "@biomejs/biome": "^1.9.4",
     "dotenv-cli": "^8.0.0",
-    "drizzle-kit": "^0.30.2",
+    "prisma": "^6.3.1",
+    "tsx": "^4.19.2",
     "typescript": "catalog:"
   }
 }

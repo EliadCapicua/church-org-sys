@@ -1,15 +1,13 @@
+import { randomUUID } from "node:crypto";
+import { prisma } from "@acme/db/client";
 import { skipCSRFCheck } from "@auth/core";
-import { DrizzleAdapter } from "@auth/drizzle-adapter";
+import { PrismaAdapter } from "@auth/prisma-adapter";
 import type {
 	DefaultSession,
 	NextAuthConfig,
 	Session as NextAuthSession,
 } from "next-auth";
-import Discord from "next-auth/providers/discord";
-
-import { db } from "@acme/db/client";
-import { Account, Session, User } from "@acme/db/schema";
-
+import { encode as defaultEncode } from "next-auth/jwt";
 import { env } from "../env";
 
 declare module "next-auth" {
@@ -20,13 +18,10 @@ declare module "next-auth" {
 	}
 }
 
-const adapter = DrizzleAdapter(db, {
-	usersTable: User,
-	accountsTable: Account,
-	sessionsTable: Session,
-});
+const adapter = PrismaAdapter(prisma);
 
-export const isSecureContext = env.NODE_ENV !== "development";
+export const isSecureContext =
+	env.NODE_ENV !== "development" && env.USE_TRUST_PROXY;
 
 export const authConfig = {
 	adapter,
@@ -38,8 +33,35 @@ export const authConfig = {
 			}
 		: {}),
 	secret: env.AUTH_SECRET,
-	providers: [Discord],
-	callbacks: {
+	debug: true,
+	providers: [],
+	callbacks: getCallBacks(),
+	jwt: getJwt(),
+} satisfies NextAuthConfig;
+
+export async function validateToken(
+	token: string,
+): Promise<NextAuthSession | null> {
+	const sessionToken = token.slice("Bearer ".length);
+	const session = await adapter.getSessionAndUser?.(sessionToken);
+
+	return session
+		? {
+				user: {
+					...session.user,
+				},
+				expires: session.session.expires.toISOString(),
+			}
+		: null;
+}
+
+export async function invalidateSessionToken(token: string) {
+	const sessionToken = token.slice("Bearer ".length);
+	await adapter.deleteSession?.(sessionToken);
+}
+
+function getCallBacks() {
+	return {
 		session: (opts) => {
 			if (!("user" in opts))
 				throw new Error("unreachable with session strategy");
@@ -52,25 +74,41 @@ export const authConfig = {
 				},
 			};
 		},
-	},
-} satisfies NextAuthConfig;
-
-export const validateToken = async (
-	token: string,
-): Promise<NextAuthSession | null> => {
-	const sessionToken = token.slice("Bearer ".length);
-	const session = await adapter.getSessionAndUser?.(sessionToken);
-	return session
-		? {
-				user: {
-					...session.user,
-				},
-				expires: session.session.expires.toISOString(),
+		async jwt({ account, token }) {
+			if (account?.provider === "credentials") {
+				token.credentials = true;
 			}
-		: null;
-};
+			return token;
+		},
+	} satisfies NextAuthConfig["callbacks"];
+}
 
-export const invalidateSessionToken = async (token: string) => {
-	const sessionToken = token.slice("Bearer ".length);
-	await adapter.deleteSession?.(sessionToken);
-};
+function getJwt() {
+	return {
+		encode: async (params) => {
+			// credentials was added in the jwt callback
+			if (params.token?.credentials) {
+				const sessionToken = randomUUID();
+				const expires = new Date(Date.now() + 60 * 60 * 24 * 30 * 1000); // 30 days
+
+				if (!params.token.sub) {
+					throw new Error("No user id found in token");
+				}
+
+				const session = await adapter.createSession?.({
+					userId: params.token.sub,
+					sessionToken,
+					expires,
+				});
+
+				if (!session) {
+					throw new Error("Failed to create session");
+				}
+
+				return session.sessionToken;
+			}
+
+			return defaultEncode(params);
+		},
+	} satisfies NextAuthConfig["jwt"];
+}

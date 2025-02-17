@@ -1,3 +1,4 @@
+import { OrganizationProcedureSchema } from "@acme/validators";
 /**
  * YOU PROBABLY DON'T NEED TO EDIT THIS FILE, UNLESS:
  * 1. You want to modify request context (see Part 1)
@@ -6,13 +7,17 @@
  * tl;dr - this is where all the tRPC server stuff is created and plugged in.
  * The pieces you will need to use are documented accordingly near the end
  */
-import { TRPCError, initTRPC } from "@trpc/server";
+import {
+	TRPCError,
+	type inferProcedureBuilderResolverOptions,
+	initTRPC,
+} from "@trpc/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
 
 import type { Session } from "@acme/auth";
 import { auth, validateToken } from "@acme/auth";
-import { db } from "@acme/db/client";
+import { prisma } from "@acme/db/client";
 
 /**
  * Isomorphic Session getter for API requests
@@ -49,7 +54,7 @@ export const createTRPCContext = async (opts: {
 
 	return {
 		session,
-		db,
+		prisma,
 		token: authToken,
 	};
 };
@@ -143,3 +148,44 @@ export const protectedProcedure = t.procedure
 			},
 		});
 	});
+
+/**
+ * Organization (authenticated) procedure
+ *
+ * If you want a query or mutation to ONLY be accessible to organization members, use this.
+ * It verifies if the session is valid and guarantees `ctx.session.user` is not null.
+ * It also returns `ctx.session.organization`.
+ *
+ * */
+export const organizationProcedure = protectedProcedure.use(
+	async ({ ctx, getRawInput, next }) => {
+		const input = await getRawInput();
+		const { data, success } = OrganizationProcedureSchema.safeParse(input);
+
+		if (!success) {
+			throw new TRPCError({
+				code: "BAD_REQUEST",
+				message:
+					"Organization procedures must receive an organization ID or slug in the input",
+			});
+		}
+
+		const organization = await ctx.prisma.organization.findFirstOrThrow({
+			select: { id: true, slug: true, name: true },
+			where: "orgId" in data ? { id: data.orgId } : { slug: data.orgSlug },
+		});
+
+		return next({
+			ctx: {
+				session: {
+					...ctx.session,
+					organization,
+				},
+			},
+		});
+	},
+);
+
+export type OrganizationProcedureContext = inferProcedureBuilderResolverOptions<
+	typeof organizationProcedure
+>["ctx"];

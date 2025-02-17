@@ -3,16 +3,13 @@ import { z } from "zod";
 
 export const env = createEnv({
 	server: {
-		AUTH_SECRET:
-			process.env.NODE_ENV === "production"
-				? z.string().min(1)
-				: z.string().min(1).optional(),
+		DATABASE_URL: z.string().min(1),
 		NODE_ENV: z.enum(["development", "production", "test"]).optional(),
-		USE_TRUST_PROXY: z.boolean().default(true),
+		LOG_SQL: z.boolean().optional().default(false),
 	},
 	client: {},
 	experimental__runtimeEnv: {
-		USE_TRUST_PROXY: process.env.USER_TRUST_PROXY === "true",
+		LOG_SQL: process.env.LOG_SQL === "true",
 	},
 	skipValidation:
 		!!process.env.CI || process.env.npm_lifecycle_event === "lint",
