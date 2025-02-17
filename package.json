@@ -21,11 +21,19 @@
     "lint:ws": "pnpm dlx sherif@latest",
     "postinstall": "pnpm lint:ws",
     "typecheck": "turbo run typecheck",
-    "ui-add": "turbo run ui-add"
+    "ui-add": "turbo run ui-add",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "pnpm format-and-lint"
+    ]
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@turbo/gen": "^2.3.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
     "turbo": "^2.3.4",
     "typescript": "catalog:"
   }
