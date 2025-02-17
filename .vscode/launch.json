@@ -1,17 +1,46 @@
 {
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "Next.js",
-      "type": "node-terminal",
-      "request": "launch",
-      "command": "pnpm dev",
-      "cwd": "${workspaceFolder}/apps/nextjs",
-      "skipFiles": ["<node_internals>/**"],
-      "sourceMaps": true,
-      "sourceMapPathOverrides": {
-        "/turbopack/[project]/*": "${webRoot}/*" //https://github.com/vercel/next.js/issues/62008
-      }
-    }
-  ]
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Next.js",
+			"type": "node-terminal",
+			"request": "launch",
+			"command": "pnpm run dev",
+			"cwd": "${workspaceFolder}/apps/nextjs",
+			"skipFiles": ["<node_internals>/**"],
+			"sourceMaps": true,
+			"sourceMapPathOverrides": {
+				"/turbopack/[project]/*": "${webRoot}/*" //https://github.com/vercel/next.js/issues/62008
+			}
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Test with Vitest",
+			"envFile": "${workspaceFolder}/.env.test",
+			"program": "${workspaceFolder}/node_modules/vitest/vitest.mjs",
+			"args": [
+				"-c",
+				"${workspaceFolder}/tooling/vitest/vitest.config.ts",
+				"--test-timeout",
+				"30000",
+				"--no-file-parallelism",
+				"--max-concurrency=1",
+				"--inspect-brk"
+			],
+			"console": "integratedTerminal",
+			"smartStep": true,
+			"autoAttachChildProcesses": true,
+			"skipFiles": ["<node_internals>/**", "**/node_modules/**"]
+		},
+		{
+			"name": "Test with pnpm",
+			"type": "node-terminal",
+			"request": "launch",
+			"command": "pnpm test -- --test-timeout 30000 --no-file-parallelism --max-concurrency=1 --inspect-brk",
+			"cwd": "${workspaceFolder}",
+			"skipFiles": ["<node_internals>/**"],
+			"outFiles": ["${workspaceFolder}/**/*.(m|c|)js", "!**/node_modules/**"]
+		}
+	]
 }

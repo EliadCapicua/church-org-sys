@@ -3,6 +3,10 @@
     "expo.vscode-expo-tools",
     "yoavbls.pretty-ts-errors",
     "bradlc.vscode-tailwindcss",
+    "ms-azuretools.vscode-docker",
+    "foxundermoon.shell-format",
+    "hashicorp.terraform",
+    "Prisma.prisma",
     "biomejs.biome"
   ]
 }
