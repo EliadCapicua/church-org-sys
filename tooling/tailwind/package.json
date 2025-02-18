@@ -2,25 +2,25 @@
 	"name": "@acme/tailwind-config",
 	"version": "0.1.0",
 	"private": true,
+	"license": "MIT",
 	"type": "module",
 	"exports": {
 		"./native": "./native.ts",
 		"./web": "./web.ts"
 	},
-	"license": "MIT",
 	"scripts": {
 		"clean": "git clean -xdf .cache .turbo node_modules",
 		"format-and-lint": "biome check .",
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
-		"postcss": "^8.5.1",
+		"postcss": "^8.4.49",
 		"tailwindcss": "catalog:",
 		"tailwindcss-animate": "^1.0.7"
 	},
 	"devDependencies": {
 		"@acme/tsconfig": "workspace:*",
-		"@biomejs/biome": "^1.9.4",
+		"@biomejs/biome": "catalog:",
 		"typescript": "catalog:"
 	}
 }

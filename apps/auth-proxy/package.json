@@ -14,7 +14,7 @@
   "devDependencies": {
     "@acme/tailwind-config": "workspace:*",
     "@acme/tsconfig": "workspace:*",
-    "@biomejs/biome": "^1.9.4",
+    "@biomejs/biome": "catalog:",
     "@types/node": "^22.10.10",
     "h3": "^1.14.0",
     "nitropack": "^2.10.4",

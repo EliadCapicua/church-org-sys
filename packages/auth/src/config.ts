@@ -1,4 +1,4 @@
-import { randomUUID } from "node:crypto";
+import { randomUUID } from "crypto";
 import { prisma } from "@acme/db/client";
 import { skipCSRFCheck } from "@auth/core";
 import { PrismaAdapter } from "@auth/prisma-adapter";
@@ -6,8 +6,13 @@ import type {
 	DefaultSession,
 	NextAuthConfig,
 	Session as NextAuthSession,
+	Session,
 } from "next-auth";
 import { encode as defaultEncode } from "next-auth/jwt";
+import Apple from "next-auth/providers/apple";
+import Credentials from "next-auth/providers/credentials";
+import Google from "next-auth/providers/google";
+import { z } from "zod";
 import { env } from "../env";
 
 declare module "next-auth" {
@@ -34,7 +39,7 @@ export const authConfig = {
 		: {}),
 	secret: env.AUTH_SECRET,
 	debug: true,
-	providers: [],
+	providers: getProviders(),
 	callbacks: getCallBacks(),
 	jwt: getJwt(),
 } satisfies NextAuthConfig;
@@ -58,6 +63,43 @@ export async function validateToken(
 export async function invalidateSessionToken(token: string) {
 	const sessionToken = token.slice("Bearer ".length);
 	await adapter.deleteSession?.(sessionToken);
+}
+
+function getProviders() {
+	const Credential = Credentials({
+		id: "credentials",
+		type: "credentials",
+		name: "Mocked Google",
+		credentials: {
+			email: { label: "Email", type: "email" },
+		},
+		async authorize(input) {
+			const credentials = await z
+				.object({ email: z.string().email() })
+				.parseAsync(input);
+
+			const user = await prisma.user.findUniqueOrThrow({
+				where: { email: credentials.email },
+			});
+
+			return {
+				id: user.id,
+				name: user.name,
+				email: user.email,
+				image: user.image,
+			} satisfies Session["user"];
+		},
+	});
+
+	const providers: NextAuthConfig["providers"] = [
+		Apple,
+		Google({
+			allowDangerousEmailAccountLinking: true,
+		}),
+		Credential,
+	];
+
+	return providers;
 }
 
 function getCallBacks() {

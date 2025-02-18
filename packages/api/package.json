@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@acme/auth": "workspace:*",
+    "@acme/common": "workspace:*",
     "@acme/db": "workspace:*",
     "@acme/validators": "workspace:*",
     "@trpc/server": "catalog:",
@@ -28,7 +29,7 @@
   },
   "devDependencies": {
     "@acme/tsconfig": "workspace:*",
-    "@biomejs/biome": "^1.9.4",
+    "@biomejs/biome": "catalog:",
     "typescript": "catalog:"
   }
 }

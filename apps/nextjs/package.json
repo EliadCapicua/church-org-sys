@@ -34,7 +34,7 @@
   "devDependencies": {
     "@acme/tailwind-config": "workspace:*",
     "@acme/tsconfig": "workspace:*",
-    "@biomejs/biome": "^1.9.4",
+    "@biomejs/biome": "catalog:",
     "@types/node": "^22.10.10",
     "@types/react": "catalog:react18",
     "@types/react-dom": "catalog:react18",

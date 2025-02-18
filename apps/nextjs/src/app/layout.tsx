@@ -1,10 +1,8 @@
-import { GeistMono } from "geist/font/mono";
-import { GeistSans } from "geist/font/sans";
-import type { Metadata, Viewport } from "next";
-
 import { cn } from "@acme/ui";
 import { ThemeProvider, ThemeToggle } from "@acme/ui/theme";
 import { Toaster } from "@acme/ui/toast";
+import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 
 import { TRPCReactProvider } from "~/trpc/react";
 
@@ -18,18 +16,13 @@ export const metadata: Metadata = {
 			? "https://turbo.t3.gg"
 			: "http://localhost:3000",
 	),
-	title: "Create T3 Turbo",
-	description: "Simple monorepo with shared backend for web & mobile apps",
+	title: "Stepping Stones",
+	description: "Stepping Stones Organization",
 	openGraph: {
-		title: "Create T3 Turbo",
-		description: "Simple monorepo with shared backend for web & mobile apps",
+		title: "Stepping Stones",
+		description: "Stepping Stones Organization",
 		url: "https://create-t3-turbo.vercel.app",
-		siteName: "Create T3 Turbo",
-	},
-	twitter: {
-		card: "summary_large_image",
-		site: "@jullerino",
-		creator: "@jullerino",
+		siteName: "Stepping Stones",
 	},
 };
 
@@ -40,19 +33,20 @@ export const viewport: Viewport = {
 	],
 };
 
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+
 export default function RootLayout(props: { children: React.ReactNode }) {
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
 				className={cn(
-					"min-h-screen bg-background font-sans text-foreground antialiased",
-					GeistSans.variable,
-					GeistMono.variable,
+					"h-screen max-h-screen overflow-hidden bg-background font-inter text-foreground antialiased",
+					inter.variable,
 				)}
 			>
 				<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
 					<TRPCReactProvider>{props.children}</TRPCReactProvider>
-					<div className="absolute bottom-4 right-4">
+					<div className="absolute bottom-4 right-4 z-10">
 						<ThemeToggle />
 					</div>
 					<Toaster />

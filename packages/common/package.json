@@ -1,0 +1,26 @@
+{
+  "name": "@acme/common",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"default": "./src/index.ts"
+		},
+		"./env": "./env.ts"
+	},
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "dev": "tsc",
+    "format-and-lint": "biome check ./src ",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "devDependencies": {
+    "@acme/tsconfig": "workspace:*",
+    "@biomejs/biome": "catalog:",
+    "typescript": "catalog:"
+  }
+}

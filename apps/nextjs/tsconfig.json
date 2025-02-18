@@ -1,15 +1,18 @@
 {
-  "extends": "@acme/tsconfig/base.json",
   "compilerOptions": {
     "lib": ["ES2022", "dom", "dom.iterable"],
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "hooks/*": ["./src/lib/hooks/*"]
     },
     "plugins": [{ "name": "next" }],
-    "module": "esnext"
+    "module": "esnext",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
-  "include": [".", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", ".next"],
+  "extends": "@acme/tsconfig/base.json",
+  "include": [".", ".next/types/**/*.ts"]
 }

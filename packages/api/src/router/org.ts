@@ -7,4 +7,9 @@ export const orgRouter = {
 	all: organizationProcedure.input(GetOrgSchema).query(async ({ ctx }) => {
 		return orgService.getAll({ ctx });
 	}),
+	getUserRolesInOrg: organizationProcedure
+		.input(GetOrgSchema)
+		.query(async ({ ctx }) => {
+			return orgService.getUserRolesInOrg({ ctx });
+		}),
 } satisfies TRPCRouterRecord;
