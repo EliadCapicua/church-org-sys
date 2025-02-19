@@ -1,6 +1,6 @@
 import { buttonVariants } from "@acme/ui/button";
+import type { RouteProps } from "common/types/route";
 import Link from "next/link";
-import type { RouteProps } from "~/modules/common/types/route";
 
 interface Props {
 	routeList: RouteProps[];

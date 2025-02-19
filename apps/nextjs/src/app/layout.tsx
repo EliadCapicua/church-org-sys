@@ -1,13 +1,15 @@
 import { cn } from "@acme/ui";
 import { Toaster } from "@acme/ui/toast";
 import type { Metadata, Viewport } from "next";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
 import { Inter } from "next/font/google";
 
-import { TRPCReactProvider } from "~/trpc/react";
+import { TRPCReactProvider } from "@/trpc/react";
 
 import "~/app/globals.css";
 
-import { env } from "~/env";
+import { env } from "@/env";
 
 export const metadata: Metadata = {
 	metadataBase: new URL(
@@ -34,16 +36,23 @@ export const viewport: Viewport = {
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
-export default function RootLayout(props: { children: React.ReactNode }) {
+export default async function RootLayout(props: { children: React.ReactNode }) {
+	const locale = await getLocale();
+	// Providing all messages to the client
+	// side is the easiest way to get started
+	const messages = await getMessages();
+
 	return (
-		<html lang="en" suppressHydrationWarning>
+		<html lang={locale} suppressHydrationWarning>
 			<body
 				className={cn(
 					"h-screen max-h-screen overflow-hidden bg-background font-inter text-foreground antialiased",
 					inter.variable,
 				)}
 			>
-				<TRPCReactProvider>{props.children}</TRPCReactProvider>
+				<NextIntlClientProvider messages={messages}>
+					<TRPCReactProvider>{props.children}</TRPCReactProvider>
+				</NextIntlClientProvider>
 				<Toaster />
 			</body>
 		</html>

@@ -7,11 +7,10 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from "@acme/ui/sheet";
+import type { RouteProps } from "common/types/route";
 import { Menu } from "lucide-react";
 import { useState } from "react";
-import type { RouteProps } from "~/modules/common/types/route";
 import NavbarRoutes from "./navbar-routes";
-import SignInButton from "./sign-in-button";
 
 interface Props {
 	routeList: RouteProps[];
@@ -36,7 +35,7 @@ export default function NavbarSheet({ routeList }: Props) {
 				</SheetHeader>
 				<nav className="flex flex-col justify-center items-center gap-2 mt-4">
 					<NavbarRoutes routeList={routeList} />
-					<SignInButton />
+					{/* <SignInButton /> */}
 				</nav>
 			</SheetContent>
 		</Sheet>

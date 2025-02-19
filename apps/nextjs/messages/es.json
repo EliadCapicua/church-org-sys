@@ -1,0 +1,45 @@
+{
+    "AppLayout": {
+        "home": "Home",
+        "logout": "Logout",
+        "profile": "Profile"
+    },
+    "LandingPage": {
+        "title": "Iafcj Colombia",
+        "headquarters": "Sedes",
+        "events": "Eventos",
+        "ministries": "Ministros",
+        "faq": "Contacto",
+        "evangelists": "Evangelistas",
+        "signUp": "Registrarse",
+        "signIn": "Iniciar Sesión",
+        "hero": {
+            "church": "Iglesia",
+            "apostolic": "Apostólica",
+            "faith": "de la Fe",
+            "in": "en",
+            "christ": "Cristo",
+            "jesus": "Jesús",
+            "description": "Creemos que el fundamento por excelencia para la Iglesia es el de apóstoles y profetas, siendo la principal piedra del ángulo, Jesucristo mismo. (Ef. 2:20)"
+        }
+    },
+    "LocaleSwitcher": {
+        "es": "Spanish",
+        "en": "English",
+        "label": "Language"
+    },
+    "LoginPage": {
+        "credentials": "Credentials: jane@doe.com / next-intl",
+        "description": "Please enter your details.",
+        "email": "Email",
+        "invalidCredentials": "Please check your credentials.",
+        "invalidEmail": "Please enter a valid email address.",
+        "invalidPassword": "Please enter a password.",
+        "login": "Sign in",
+        "password": "Password",
+        "title": "Welcome back"
+    },
+    "ProfilePage": {
+        "title": "Profile"
+    }
+}

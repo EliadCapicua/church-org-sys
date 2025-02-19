@@ -4,8 +4,13 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*"],
-      "hooks/*": ["./src/lib/hooks/*"]
+      "@/*": ["./src/*"],
+      "hooks/*": ["./src/lib/hooks/*"],
+      "modules/*": ["./src/modules/*"],
+      "i18n/*": ["./src/i18n/*"],
+      "components/*": ["./src/components/*"],
+      "services/*": ["./src/services/*"],
+      "common/*": ["./src/modules/common/*"]
     },
     "plugins": [{ "name": "next" }],
     "module": "esnext",

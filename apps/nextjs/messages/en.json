@@ -1,0 +1,45 @@
+{
+    "AppLayout": {
+        "home": "Home",
+        "logout": "Logout",
+        "profile": "Profile"
+    },
+    "LandingPage": {
+        "title": "Iafcj Colombia",
+        "headquarters": "Headquarters",
+        "events": "Events",
+        "ministries": "Ministries",
+        "faq": "Contact",
+        "evangelists": "Evangelists",
+        "signUp": "Sign Up",
+        "signIn": "Sign In",
+        "hero": {
+            "church": "Apostolic",
+            "apostolic": "Church",
+            "faith": "of Faith",
+            "in": "in",
+            "christ": "Christ",
+            "jesus": "Jesus",
+            "description": "We believe that the foundation par excellence for the Church is that of apostles and prophets, being the chief corner stone, Jesus Christ himself. (Eph. 2:20)"
+        }
+    },
+    "LocaleSwitcher": {
+        "es": "Spanish",
+        "en": "English",
+        "label": "Language"
+    },
+    "LoginPage": {
+        "credentials": "Credentials: jane@doe.com / next-intl",
+        "description": "Please enter your details.",
+        "email": "Email",
+        "invalidCredentials": "Please check your credentials.",
+        "invalidEmail": "Please enter a valid email address.",
+        "invalidPassword": "Please enter a password.",
+        "login": "Sign in",
+        "password": "Password",
+        "title": "Welcome back"
+    },
+    "ProfilePage": {
+        "title": "Profile"
+    }
+}

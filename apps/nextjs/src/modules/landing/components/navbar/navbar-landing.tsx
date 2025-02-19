@@ -4,15 +4,14 @@ import {
 	NavigationMenuList,
 } from "@acme/ui/navigation-menu";
 import { ThemeProvider, ThemeToggle } from "@acme/ui/theme";
+import LogoIcon from "common/components/logo-icon";
 import Link from "next/link";
-import LogoIcon from "~/modules/common/components/logo-icon";
 import { useLandingPage } from "../../hooks/useLandingPage";
 import NavbarRoutes from "./navbar-routes";
 import NavbarSheet from "./navbar-sheet";
-import SignInButton from "./sign-in-button";
 
 export default function NavbarLanding() {
-	const { routes } = useLandingPage();
+	const { routes, title } = useLandingPage();
 
 	return (
 		<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
@@ -26,7 +25,7 @@ export default function NavbarLanding() {
 								className="ml-2 font-bold text-xl flex items-center text-center gap-2"
 							>
 								<LogoIcon />
-								Iafcj Colombia
+								{title}
 							</Link>
 						</NavigationMenuItem>
 
@@ -42,7 +41,8 @@ export default function NavbarLanding() {
 						</nav>
 
 						<div className="hidden md:flex gap-2">
-							<SignInButton />
+							{/* <SignInButton signIn={signIn} /> */}
+							{/* <LocaleSwitcher /> */}
 							<ThemeToggle />
 						</div>
 					</NavigationMenuList>

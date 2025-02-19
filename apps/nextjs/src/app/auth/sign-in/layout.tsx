@@ -1,5 +1,5 @@
-import type { LayoutWithoutUserProps } from "~/lib/utils/without-user";
-import { HydrateClient } from "~/trpc/server";
+import type { LayoutWithoutUserProps } from "@/lib/utils/without-user";
+import { HydrateClient } from "@/trpc/server";
 
 export default function SignInLayout(props: LayoutWithoutUserProps) {
 	return (

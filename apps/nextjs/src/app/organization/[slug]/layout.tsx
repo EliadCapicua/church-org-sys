@@ -1,4 +1,4 @@
-import { WithUserRole } from "~/lib/utils/with-user-role";
+import { WithUserRole } from "@/lib/utils/with-user-role";
 
 const OrganizationLayout = WithUserRole((props) => (
 	<div className="h-screen overflow-hidden">

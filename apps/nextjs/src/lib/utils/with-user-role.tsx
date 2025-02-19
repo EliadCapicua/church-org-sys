@@ -1,6 +1,6 @@
+import { api } from "@/trpc/server";
 import { type Session, auth } from "@acme/auth";
 import { redirect } from "next/navigation";
-import { api } from "~/trpc/server";
 import type { SearchParams } from "../types/search-params";
 
 export interface PageProps<
