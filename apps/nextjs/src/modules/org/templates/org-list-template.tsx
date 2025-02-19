@@ -6,7 +6,7 @@ export default async function OrgListTemplate() {
 			<main className="container h-screen py-16" data-testid="org-page">
 				<div className="flex flex-col items-center justify-center gap-4">
 					<h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
-						Stepping <span className="text-primary">SBS</span>
+						IAFCJ <span className="text-primary">CO</span>
 					</h1>
 					<></>
 				</div>

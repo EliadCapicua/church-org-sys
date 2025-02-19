@@ -16,13 +16,13 @@ export const metadata: Metadata = {
 			? "https://turbo.t3.gg"
 			: "http://localhost:3000",
 	),
-	title: "Stepping Stones",
-	description: "Stepping Stones Organization",
+	title: "IAFCJ Colombia",
+	description: "IAFCJ Colombia",
 	openGraph: {
-		title: "Stepping Stones",
-		description: "Stepping Stones Organization",
+		title: "IAFCJ Colombia",
+		description: "IAFCJ Colombia",
 		url: "https://create-t3-turbo.vercel.app",
-		siteName: "Stepping Stones",
+		siteName: "IAFCJ Colombia",
 	},
 };
 
