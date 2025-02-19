@@ -1,5 +1,4 @@
 import { cn } from "@acme/ui";
-import { ThemeProvider, ThemeToggle } from "@acme/ui/theme";
 import { Toaster } from "@acme/ui/toast";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
@@ -16,13 +15,13 @@ export const metadata: Metadata = {
 			? "https://turbo.t3.gg"
 			: "http://localhost:3000",
 	),
-	title: "IAFCJ Colombia",
-	description: "IAFCJ Colombia",
+	title: "Iafcj Colombia",
+	description: "Iafcj Colombia",
 	openGraph: {
-		title: "IAFCJ Colombia",
-		description: "IAFCJ Colombia",
+		title: "Iafcj Colombia",
+		description: "Iafcj Colombia",
 		url: "https://create-t3-turbo.vercel.app",
-		siteName: "IAFCJ Colombia",
+		siteName: "Iafcj Colombia",
 	},
 };
 
@@ -44,13 +43,8 @@ export default function RootLayout(props: { children: React.ReactNode }) {
 					inter.variable,
 				)}
 			>
-				<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-					<TRPCReactProvider>{props.children}</TRPCReactProvider>
-					<div className="absolute bottom-4 right-4 z-10">
-						<ThemeToggle />
-					</div>
-					<Toaster />
-				</ThemeProvider>
+				<TRPCReactProvider>{props.children}</TRPCReactProvider>
+				<Toaster />
 			</body>
 		</html>
 	);
