@@ -15,7 +15,10 @@ export default function NavbarLanding() {
 
 	return (
 		<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-			<header className="sticky border-b-[1px] top-0 z-40 w-full bg-white dark:border-b-slate-700 dark:bg-background">
+			<header
+				id="nav"
+				className="sticky border-b-[1px] top-0 z-40 w-full bg-white dark:border-b-slate-700 dark:bg-background"
+			>
 				<NavigationMenu className="mx-auto">
 					<NavigationMenuList className="container h-14 px-4 w-screen flex justify-between ">
 						<NavigationMenuItem className="flex font-bold">

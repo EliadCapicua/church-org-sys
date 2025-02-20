@@ -15,7 +15,7 @@ export default function HeroLanding() {
 			</div>
 
 			{/* Hero cards sections */}
-			<div className="z-50">
+			<div className="z-10">
 				<HeroCards places={page.places} missionary={page.missionary} />
 			</div>
 
