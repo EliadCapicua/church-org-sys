@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "Iafcj Colombia",
 		description: "Iafcj Colombia",
-		url: "https://create-t3-turbo.vercel.app",
+		url: "https://iafcj.co",
 		siteName: "Iafcj Colombia",
 	},
 };
