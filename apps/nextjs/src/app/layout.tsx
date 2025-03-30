@@ -22,8 +22,18 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "Iafcj Colombia",
 		description: "Iafcj Colombia",
-		url: "https://iafcj.co",
+		url: "https://www.iafcj.co",
 		siteName: "Iafcj Colombia",
+		type: "website",
+		locale: "es_CO",
+		images: [
+			{
+				url: "https://www.iafcj.co/icon.png",
+				alt: "Iafcj Colombia",
+				width: 1200,
+				height: 630,
+			},
+		],
 	},
 };
 
