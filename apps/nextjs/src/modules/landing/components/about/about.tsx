@@ -15,7 +15,6 @@ export default function About() {
 							className="rounded-full object-cover"
 							loading="lazy"
 							priority={false}
-							placeholder="blur"
 							blurDataURL="/icon.png"
 							quality={100}
 						/>

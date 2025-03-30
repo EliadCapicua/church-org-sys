@@ -8,7 +8,6 @@ import Features from "../components/features/features";
 import Footer from "../components/footer/footer";
 import HeroLanding from "../components/hero/hero-landing";
 import HowItWork from "../components/howitwork/how-it-work";
-import NavbarLanding from "../components/navbar/navbar-landing";
 import Newsletter from "../components/newsletter/news-letter";
 // import Pricing from "../components/pricing/pricing";
 import ScrollToTop from "../components/scroll/scroll-top";
@@ -20,8 +19,7 @@ import Testimonials from "../components/testimonials/testimonials";
 export default function LandingPageTemplate() {
 	return (
 		<ClientOnly>
-			<div className="flex flex-col flex-grow h-[calc(100vh-64px)] overflow-scroll scroll-smooth">
-				<NavbarLanding />
+			<div className="flex flex-col flex-grow h-[calc(100vh-64px)]">
 				<HeroLanding />
 				<Sponsors />
 				<About />

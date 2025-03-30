@@ -1,4 +1,5 @@
 import { auth } from "@acme/auth";
+import LandingPageTemplate from "modules/landing/templates/landing-page-template";
 import { redirect } from "next/navigation";
 
 export default async function HomePage() {
@@ -8,5 +9,5 @@ export default async function HomePage() {
 		redirect("/organization");
 	}
 
-	redirect("/home");
+	return <LandingPageTemplate />;
 }

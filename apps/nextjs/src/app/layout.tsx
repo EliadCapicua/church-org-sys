@@ -10,6 +10,7 @@ import { TRPCReactProvider } from "@/trpc/react";
 import "@/app/globals.css";
 
 import { env } from "@/env";
+import { ThemeProvider } from "@acme/ui/theme";
 
 export const metadata: Metadata = {
 	metadataBase: new URL(
@@ -57,9 +58,6 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 			<head>
 				<link rel="icon" href="/favicon.ico" sizes="any" />
 				<link rel="icon" type="image/png" href="/icon.png" />
-				<link rel="apple-touch-icon" href="/icon.png" />
-				<link rel="manifest" href="/manifest.json" />
-				<meta name="apple-mobile-web-app-capable" content="yes" />
 			</head>
 			<body
 				className={cn(
@@ -67,10 +65,12 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 					inter.variable,
 				)}
 			>
-				<NextIntlClientProvider messages={messages}>
-					<TRPCReactProvider>{props.children}</TRPCReactProvider>
-				</NextIntlClientProvider>
-				<Toaster />
+				<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+					<NextIntlClientProvider messages={messages}>
+						<TRPCReactProvider>{props.children}</TRPCReactProvider>
+					</NextIntlClientProvider>
+					<Toaster />
+				</ThemeProvider>
 			</body>
 		</html>
 	);

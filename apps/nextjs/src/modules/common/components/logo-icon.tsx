@@ -15,7 +15,6 @@ export default function LogoIcon({ width = 32, height = 32 }: LogoIconProps) {
 			className="rounded-full object-cover"
 			loading="lazy"
 			priority={false}
-			placeholder="blur"
 			blurDataURL="/icon.png"
 			quality={100}
 		/>

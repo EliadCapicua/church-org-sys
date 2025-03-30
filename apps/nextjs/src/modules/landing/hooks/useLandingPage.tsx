@@ -13,7 +13,7 @@ export const useLandingPage = () => {
 
 	const routes: RouteProps[] = [
 		{
-			href: "#features",
+			href: "/locations",
 			label: t("headquarters"),
 		},
 		{

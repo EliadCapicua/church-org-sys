@@ -1,20 +1,37 @@
+import { ClientOnly } from "@/modules/common/components/client-only";
+import type { RouteProps } from "@/modules/common/types/route";
 import {
 	NavigationMenu,
 	NavigationMenuItem,
 	NavigationMenuList,
 } from "@acme/ui/navigation-menu";
-import { ThemeProvider, ThemeToggle } from "@acme/ui/theme";
 import LogoIcon from "common/components/logo-icon";
 import Link from "next/link";
-import { useLandingPage } from "../../hooks/useLandingPage";
 import NavbarRoutes from "./navbar-routes";
 import NavbarSheet from "./navbar-sheet";
 
 export default function NavbarLanding() {
-	const { routes, title } = useLandingPage();
+	const routes: RouteProps[] = [
+		{
+			href: "/locations",
+			label: "Sedes",
+		},
+		{
+			href: "/home#team",
+			label: "Ministros",
+		},
+		{
+			href: "/home#testimonials",
+			label: "Testimonios",
+		},
+		{
+			href: "/home#faq",
+			label: "FAQ",
+		},
+	];
 
 	return (
-		<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+		<ClientOnly>
 			<header
 				id="nav"
 				className="sticky border-b-[1px] top-0 z-40 w-full bg-white dark:border-b-slate-700 dark:bg-background"
@@ -28,13 +45,12 @@ export default function NavbarLanding() {
 								className="ml-2 font-bold text-xl flex items-center text-center gap-2"
 							>
 								<LogoIcon />
-								<h1 className="hidden md:inline">{title}</h1>
+								<h1 className="hidden md:inline">IAFCJ Colombia</h1>
 							</Link>
 						</NavigationMenuItem>
 
 						{/* mobile */}
 						<div className="flex md:hidden">
-							<ThemeToggle />
 							<NavbarSheet routeList={routes} />
 						</div>
 
@@ -45,12 +61,10 @@ export default function NavbarLanding() {
 
 						<div className="hidden md:flex gap-2">
 							{/* <SignInButton signIn={signIn} /> */}
-							{/* <LocaleSwitcher /> */}
-							<ThemeToggle />
 						</div>
 					</NavigationMenuList>
 				</NavigationMenu>
 			</header>
-		</ThemeProvider>
+		</ClientOnly>
 	);
 }
