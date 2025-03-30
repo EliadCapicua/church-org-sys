@@ -28,7 +28,7 @@ export default function NavbarLanding() {
 								className="ml-2 font-bold text-xl flex items-center text-center gap-2"
 							>
 								<LogoIcon />
-								{title}
+								<h1 className="hidden md:inline">{title}</h1>
 							</Link>
 						</NavigationMenuItem>
 
@@ -46,7 +46,7 @@ export default function NavbarLanding() {
 						<div className="hidden md:flex gap-2">
 							{/* <SignInButton signIn={signIn} /> */}
 							{/* <LocaleSwitcher /> */}
-							{/* <ThemeToggle /> */}
+							<ThemeToggle />
 						</div>
 					</NavigationMenuList>
 				</NavigationMenu>

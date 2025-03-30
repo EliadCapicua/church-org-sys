@@ -1,12 +1,25 @@
+import Image from "next/image";
 import { Statistics } from "./stadistics";
-import LogoIcon from "@/modules/common/components/logo-icon";
 
 export default function About() {
 	return (
 		<section id="about" className="container py-24 sm:py-32">
 			<div className="bg-muted/50 border rounded-lg py-12">
 				<div className="px-6 flex flex-col-reverse md:flex-row gap-8 md:gap-12">
-					<LogoIcon width={800} height={800} />
+					<div className="flex flex-col items-center justify-center md:items-start md:justify-start">
+						<Image
+							src="/icon.png"
+							alt="Logo Icon"
+							width={400}
+							height={400}
+							className="rounded-full object-cover"
+							loading="lazy"
+							priority={false}
+							placeholder="blur"
+							blurDataURL="/icon.png"
+							quality={100}
+						/>
+					</div>
 					<div className="bg-green-0 flex flex-col justify-between">
 						<div className="pb-6">
 							<h2 className="text-3xl md:text-4xl font-bold">

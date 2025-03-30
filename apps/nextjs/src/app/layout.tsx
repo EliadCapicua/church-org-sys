@@ -54,6 +54,13 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 
 	return (
 		<html lang={locale} suppressHydrationWarning>
+			<head>
+				<link rel="icon" href="/favicon.ico" sizes="any" />
+				<link rel="icon" type="image/png" href="/icon.png" />
+				<link rel="apple-touch-icon" href="/icon.png" />
+				<link rel="manifest" href="/manifest.json" />
+				<meta name="apple-mobile-web-app-capable" content="yes" />
+			</head>
 			<body
 				className={cn(
 					"h-screen max-h-screen overflow-hidden bg-background font-inter text-foreground antialiased",
