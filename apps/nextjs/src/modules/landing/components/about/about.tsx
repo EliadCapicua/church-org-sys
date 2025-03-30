@@ -17,19 +17,23 @@ export default function About() {
 						<div className="pb-6">
 							<h2 className="text-3xl md:text-4xl font-bold">
 								<span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-									About{" "}
+									Nuestra{" "}
 								</span>
-								Company
+								Iglesia
 							</h2>
-							<p className="text-xl text-muted-foreground mt-4">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-								eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-								enim ad minim veniam, quis nostrud exercitation ullamco laboris
-								nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit
-								amet, consectetur adipiscing elit.
+							<p className="text-lg text-muted-foreground mt-4">
+								Hay un solo Dios. Creemos que hay un solo Dios único e
+								indivisible en su esencia y se ha manifestado al mundo en
+								distintas formas a través de las edades y que especialmente se
+								ha revelado como Padre en la creación del universo, como Hijo en
+								la redención de la humanidad y como Espíritu Santo derramándose
+								en los corazones de los creyentes (Génesis 1:1, Juan 1:1-3,14, 2
+								Corintios 3:17).
+							</p>
+							<p className="text-lg text-muted-foreground mt-4">
+								Organizacionalmente, la iglesia en Colombia esta compuesta por:
 							</p>
 						</div>
-
 						<Statistics />
 					</div>
 				</div>

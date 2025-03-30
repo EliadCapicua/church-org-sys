@@ -13,33 +13,33 @@ interface FAQProps {
 
 const FAQList: FAQProps[] = [
 	{
-		question: "Is this template free?",
-		answer: "Yes. It is a free ChadcnUI template.",
+		question: "¿Dónde se encuentran ubicadas las iglesias?",
+		answer:
+			"Actualmente tenemos iglesias en las ciudades de Bogotá, Cali, Garagoa y Santa Marta.",
 		value: "item-1",
 	},
 	{
-		question: "Lorem ipsum dolor sit amet consectetur adipisicing elit?",
+		question: "¿Cómo puedo ver los servicios en línea?",
 		answer:
-			"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint labore quidem quam? Consectetur sapiente iste rerum reiciendis animi nihil nostrum sit quo, modi quod.",
+			"Cada domingo a las 10:00 AM hora Colombia, transmitimos en vivo desde nuestra cuenta de Facebook.",
 		value: "item-2",
 	},
 	{
-		question:
-			"Lorem ipsum dolor sit amet  Consectetur natus dolores minus quibusdam?",
+		question: "¿Ofrecen programas para niños y jóvenes?",
 		answer:
-			"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore qui nostrum reiciendis veritatis necessitatibus maxime quis ipsa vitae cumque quo?",
+			"Sí, contamos con programas para niños y jóvenes cada domingo a las 10:00 AM.",
 		value: "item-3",
 	},
 	{
-		question: "Lorem ipsum dolor sit amet, consectetur adipisicing elit?",
-		answer: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+		question: "¿Cómo puedo hacer una donación o diezmo?",
+		answer:
+			"Para hacer una donación o diezmo, puedes hacerlo a través de nuestra página web o en la iglesia más cercana.",
 		value: "item-4",
 	},
 	{
-		question:
-			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur natus?",
+		question: "¿Necesito registrarme para asistir a un servicio?",
 		answer:
-			"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint labore quidem quam? Consectetur sapiente iste rerum reiciendis animi nihil nostrum sit quo, modi quod.",
+			"No es necesario registrarse, pero te recomendamos llegar temprano para asegurar un buen lugar.",
 		value: "item-5",
 	},
 ];
@@ -48,9 +48,9 @@ export default function FAQ() {
 	return (
 		<section id="faq" className="container py-24 sm:py-32">
 			<h2 className="text-3xl md:text-4xl font-bold mb-4">
-				Frequently Asked{" "}
+				Preguntas Frecuentes{" "}
 				<span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-					Questions
+					FAQ
 				</span>
 			</h2>
 
@@ -66,13 +66,14 @@ export default function FAQ() {
 			</Accordion>
 
 			<h3 className="font-medium mt-4">
-				Still have questions?{" "}
+				Tienes mas preguntas?
 				<a
 					rel="noreferrer noopener"
 					href="#contact"
 					className="text-primary transition-all border-primary hover:border-b-2"
 				>
-					Contact us
+					{" "}
+					Contáctanos
 				</a>
 			</h3>
 		</section>

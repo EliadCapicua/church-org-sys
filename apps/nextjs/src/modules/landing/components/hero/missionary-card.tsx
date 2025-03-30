@@ -1,5 +1,5 @@
-import type { Missionary } from "@/modules/common/types/users";
-import { buttonVariants } from "@acme/ui/button";
+import LogoIcon from "@/modules/common/components/logo-icon";
+import type { CountryMissionary } from "@/modules/common/types/users";
 import {
 	Card,
 	CardContent,
@@ -10,7 +10,7 @@ import {
 } from "@acme/ui/card";
 
 interface MissionaryCardProps {
-	missionary: Missionary;
+	missionary: CountryMissionary;
 }
 
 export default function MissionaryCard({ missionary }: MissionaryCardProps) {
@@ -24,41 +24,14 @@ export default function MissionaryCard({ missionary }: MissionaryCardProps) {
 				/>
 				<CardTitle className="text-center">{missionary.name}</CardTitle>
 				<CardDescription className="font-normal text-primary">
-					{missionary.role}
+					{missionary.mission}
 				</CardDescription>
 			</CardHeader>
-
-			<CardContent className="text-center pb-2">
+			<CardContent className="text-center pb-2 text-sm">
 				<p>{missionary.message}</p>
 			</CardContent>
-
-			<CardFooter>
-				<div>
-					<a
-						rel="noreferrer noopener"
-						href="https://github.com/leoMirandaa"
-						target="_blank"
-						className={buttonVariants({
-							variant: "ghost",
-							size: "sm",
-						})}
-					>
-						<span className="sr-only">Github icon</span>
-						{/* <GitHubLogoIcon className="w-5 h-5" /> */}
-					</a>
-					<a
-						rel="noreferrer noopener"
-						href="https://www.linkedin.com/in/leopoldo-miranda/"
-						target="_blank"
-						className={buttonVariants({
-							variant: "ghost",
-							size: "sm",
-						})}
-					>
-						<span className="sr-only">Linkedin icon</span>
-						{/* <Linkedin size="20" /> */}
-					</a>
-				</div>
+			<CardFooter className="flex justify-center items-center gap-2">
+				<LogoIcon width={100} height={100} />
 			</CardFooter>
 		</Card>
 	);

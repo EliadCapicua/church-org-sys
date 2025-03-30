@@ -46,7 +46,7 @@ export default function NavbarLanding() {
 						<div className="hidden md:flex gap-2">
 							{/* <SignInButton signIn={signIn} /> */}
 							{/* <LocaleSwitcher /> */}
-							<ThemeToggle />
+							{/* <ThemeToggle /> */}
 						</div>
 					</NavigationMenuList>
 				</NavigationMenu>

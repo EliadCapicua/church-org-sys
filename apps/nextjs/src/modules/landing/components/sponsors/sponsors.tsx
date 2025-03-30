@@ -7,9 +7,8 @@ export default function Sponsors() {
 	return (
 		<section id="sponsors" className="container pt-24 sm:py-32">
 			<h2 className="text-center text-md lg:text-xl font-bold mb-8 text-primary">
-				Investors and founders
+				Lugares alcanzados por el evangelio
 			</h2>
-
 			<div className="flex flex-wrap justify-center items-center gap-4 md:gap-8">
 				{page.sponsors.map(({ icon, name }: SponsorProps) => (
 					<div

@@ -1,4 +1,4 @@
-import { LogoIcon } from "../icons/icons";
+import LogoIcon from "common/components/logo-icon";
 
 export default function Footer() {
 	return (
@@ -13,12 +13,12 @@ export default function Footer() {
 						className="font-bold text-xl flex"
 					>
 						<LogoIcon />
-						ShadcnUI/React
+						<span className="mt-1">IAFCJ Colombia</span>
 					</a>
 				</div>
 
 				<div className="flex flex-col gap-2">
-					<h3 className="font-bold text-lg">Follow US</h3>
+					<h3 className="font-bold text-lg">Siguenos</h3>
 					<div>
 						<a
 							rel="noreferrer noopener"
@@ -51,7 +51,7 @@ export default function Footer() {
 				</div>
 
 				<div className="flex flex-col gap-2">
-					<h3 className="font-bold text-lg">Platforms</h3>
+					<h3 className="font-bold text-lg">Plataformas</h3>
 					<div>
 						<a
 							rel="noreferrer noopener"
@@ -84,7 +84,7 @@ export default function Footer() {
 				</div>
 
 				<div className="flex flex-col gap-2">
-					<h3 className="font-bold text-lg">About</h3>
+					<h3 className="font-bold text-lg">Contacto</h3>
 					<div>
 						<a
 							rel="noreferrer noopener"
@@ -117,7 +117,7 @@ export default function Footer() {
 				</div>
 
 				<div className="flex flex-col gap-2">
-					<h3 className="font-bold text-lg">Community</h3>
+					<h3 className="font-bold text-lg">Comunidad</h3>
 					<div>
 						<a
 							rel="noreferrer noopener"
@@ -152,14 +152,15 @@ export default function Footer() {
 
 			<section className="container pb-14 text-center">
 				<h3>
-					&copy; 2024 Landing page made by{" "}
+					&copy; 2025 IAFCJ Colombia. Todos los derechos reservados.
 					<a
 						rel="noreferrer noopener"
 						target="_blank"
-						href="https://www.linkedin.com/in/leopoldo-miranda/"
+						href="https://www.linkedin.com/in/cristian-eliab/"
 						className="text-primary transition-all border-primary hover:border-b-2"
 					>
-						Leo Miranda
+						{" "}
+						Desarrollado por Eliab Rodriguez
 					</a>
 				</h3>
 			</section>

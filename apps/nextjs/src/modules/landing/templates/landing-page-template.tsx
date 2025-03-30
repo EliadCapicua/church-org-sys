@@ -10,7 +10,7 @@ import HeroLanding from "../components/hero/hero-landing";
 import HowItWork from "../components/howitwork/how-it-work";
 import NavbarLanding from "../components/navbar/navbar-landing";
 import Newsletter from "../components/newsletter/news-letter";
-import Pricing from "../components/pricing/pricing";
+// import Pricing from "../components/pricing/pricing";
 import ScrollToTop from "../components/scroll/scroll-top";
 import Services from "../components/services/services";
 import Sponsors from "../components/sponsors/sponsors";
@@ -31,7 +31,7 @@ export default function LandingPageTemplate() {
 				<Cta />
 				<Testimonials />
 				<Team />
-				<Pricing />
+				{/* <Pricing /> */}
 				<Newsletter />
 				<FAQ />
 				<Footer />

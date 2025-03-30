@@ -4,7 +4,6 @@ import { Input } from "@acme/ui/input";
 export default function Newsletter() {
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		console.log("Subscribed!");
 	};
 
 	return (
@@ -13,13 +12,14 @@ export default function Newsletter() {
 
 			<div className="container py-24 sm:py-32">
 				<h3 className="text-center text-4xl md:text-5xl font-bold">
-					Join Our Daily{" "}
+					Únase a nuestro diario{" "}
 					<span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-						Newsletter
+						Boletín informativo
 					</span>
 				</h3>
 				<p className="text-xl text-muted-foreground text-center mt-4 mb-8">
-					Lorem ipsum dolor sit amet consectetur.
+					Reciba las últimas actualizaciones y noticias de nuestro equipo
+					semanalmente.
 				</p>
 
 				<form
@@ -27,11 +27,11 @@ export default function Newsletter() {
 					onSubmit={handleSubmit}
 				>
 					<Input
-						placeholder="leomirandadev@gmail.com"
+						placeholder="email"
 						className="bg-muted/50 dark:bg-muted/80 "
 						aria-label="email"
 					/>
-					<Button>Subscribe</Button>
+					<Button>Suscríbete</Button>
 				</form>
 			</div>
 

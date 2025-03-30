@@ -1,3 +1,4 @@
+import { socialIcon } from "@/lib/utils/icons";
 import { buttonVariants } from "@acme/ui/button";
 import {
 	Card,
@@ -7,16 +8,16 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@acme/ui/card";
-import { Facebook, Instagram, Linkedin } from "lucide-react";
 
 interface TeamProps {
 	imageUrl: string;
 	name: string;
 	position: string;
-	socialNetworks: SociaNetworkslProps[];
+	socialNetworks: SocialNetworksProps[];
+	mission: string;
 }
 
-interface SociaNetworkslProps {
+interface SocialNetworksProps {
 	name: string;
 	url: string;
 }
@@ -24,106 +25,96 @@ interface SociaNetworkslProps {
 const teamList: TeamProps[] = [
 	{
 		imageUrl: "https://i.pravatar.cc/150?img=35",
-		name: "Emma Smith",
-		position: "Product Manager",
+		name: "Arnet Barreras Castillo",
+		position: "Misionero Supervisor Cono Norte",
 		socialNetworks: [
 			{
-				name: "Linkedin",
-				url: "https://www.linkedin.com/in/leopoldo-miranda/",
-			},
-			{
 				name: "Facebook",
-				url: "https://www.facebook.com/",
+				url: "https://www.facebook.com/arnet.barrerascastillo",
 			},
 			{
 				name: "Instagram",
-				url: "https://www.instagram.com/",
+				url: "https://www.instagram.com/barrerascastillo/",
 			},
 		],
+		mission: "Cueste lo que cueste hasta lo último de la tierra",
 	},
 	{
 		imageUrl: "https://i.pravatar.cc/150?img=60",
-		name: "John Doe",
-		position: "Tech Lead",
+		name: "Cristobal Rodriguez Colmenares",
+		position: "Ministro",
 		socialNetworks: [
 			{
-				name: "Linkedin",
-				url: "https://www.linkedin.com/in/leopoldo-miranda/",
-			},
-			{
 				name: "Facebook",
-				url: "https://www.facebook.com/",
+				url: "https://www.facebook.com/cristobal.rodriguezcolmenares",
 			},
 			{
 				name: "Instagram",
-				url: "https://www.instagram.com/",
+				url: "https://www.instagram.com/colmenarescristobal/",
 			},
 		],
+		mission: "Animate y esfuerzate y manos a la obra",
 	},
 	{
 		imageUrl: "https://i.pravatar.cc/150?img=36",
-		name: "Ashley Ross",
-		position: "Frontend Developer",
+		name: "Jorge Martinez Lancheros",
+		position: "Ministro",
 		socialNetworks: [
 			{
-				name: "Linkedin",
-				url: "https://www.linkedin.com/in/leopoldo-miranda/",
+				name: "Facebook",
+				url: "https://www.facebook.com/jorge.martinezlancheros",
 			},
-
 			{
 				name: "Instagram",
-				url: "https://www.instagram.com/",
+				url: "https://www.instagram.com/jorslancheros/",
 			},
 		],
+		mission: "El que no vive para servir no sirve para vivir",
 	},
 	{
 		imageUrl: "https://i.pravatar.cc/150?img=17",
-		name: "Bruce Rogers",
-		position: "Backend Developer",
+		name: "Eberth Beleño",
+		position: "Ministro",
 		socialNetworks: [
 			{
-				name: "Linkedin",
-				url: "https://www.linkedin.com/in/leopoldo-miranda/",
+				name: "Facebook",
+				url: "https://www.facebook.com/eberth.beleno.1",
 			},
 			{
-				name: "Facebook",
-				url: "https://www.facebook.com/",
+				name: "Instagram",
+				url: "https://www.instagram.com/belenoeberth/",
 			},
 		],
+		mission: "El que no vive para servir no sirve para vivir",
 	},
 ];
 
 export default function Team() {
-	const socialIcon = (iconName: string) => {
-		switch (iconName) {
-			case "Linkedin":
-				return <Linkedin size="20" />;
-
-			case "Facebook":
-				return <Facebook size="20" />;
-
-			case "Instagram":
-				return <Instagram size="20" />;
-		}
-	};
-
 	return (
 		<section id="team" className="container py-24 sm:py-32">
 			<h2 className="text-3xl md:text-4xl font-bold">
 				<span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-					Our Dedicated{" "}
+					Nuestro Dedicado{" "}
 				</span>
-				Crew
+				Equipo
 			</h2>
 
-			<p className="mt-4 mb-10 text-xl text-muted-foreground">
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis
-				dolor pariatur sit!
+			<p className="mt-4 mb-10 text-lg text-muted-foreground">
+				Un equipo comprometido con la misión de llevar esperanza y fe a cada
+				rincón. Con un enfoque en la comunidad y el servicio, trabajamos
+				incansablemente para crear un impacto positivo en la vida de aquellos a
+				quienes servimos.
 			</p>
 
 			<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 gap-y-10">
 				{teamList.map(
-					({ imageUrl, name, position, socialNetworks }: TeamProps) => (
+					({
+						imageUrl,
+						name,
+						position,
+						socialNetworks,
+						mission,
+					}: TeamProps) => (
 						<Card
 							key={name}
 							className="bg-muted/50 relative mt-8 flex flex-col justify-center items-center"
@@ -140,12 +131,12 @@ export default function Team() {
 								</CardDescription>
 							</CardHeader>
 
-							<CardContent className="text-center pb-2">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+							<CardContent className="text-center pb-2 italic">
+								<p>&quot;{mission}&quot;</p>
 							</CardContent>
 
 							<CardFooter>
-								{socialNetworks.map(({ name, url }: SociaNetworkslProps) => (
+								{socialNetworks.map(({ name, url }: SocialNetworksProps) => (
 									<div key={name}>
 										<a
 											rel="noreferrer noopener"

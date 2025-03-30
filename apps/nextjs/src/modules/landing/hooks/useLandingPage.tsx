@@ -3,7 +3,7 @@ import type {
 	SponsorProps,
 	statsProps,
 } from "@/modules/common/types/landing";
-import type { Missionary } from "@/modules/common/types/users";
+import type { CountryMissionary } from "@/modules/common/types/users";
 import type { RouteProps } from "common/types/route";
 import { GiftIcon, MapIcon, MedalIcon, PlaneIcon, Radar } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -18,11 +18,11 @@ export const useLandingPage = () => {
 		},
 		{
 			href: "#team",
-			label: t("events"),
+			label: t("ministries"),
 		},
 		{
 			href: "#testimonials",
-			label: t("ministries"),
+			label: t("testimonies"),
 		},
 		{
 			href: "#faq",
@@ -33,46 +33,46 @@ export const useLandingPage = () => {
 	const sponsors: SponsorProps[] = [
 		{
 			icon: <Radar size={34} />,
-			name: "Sponsor 1",
+			name: "Bogotá D.C.",
 		},
 		{
 			icon: <Radar size={34} />,
-			name: "Sponsor 2",
+			name: "Cali",
 		},
 		{
 			icon: <Radar size={34} />,
-			name: "Sponsor 3",
+			name: "Garagoa",
 		},
 		{
 			icon: <Radar size={34} />,
-			name: "Sponsor 4",
+			name: "Santa Marta",
 		},
 		{
 			icon: <Radar size={34} />,
-			name: "Sponsor 5",
+			name: "Barranquilla",
 		},
 		{
 			icon: <Radar size={34} />,
-			name: "Sponsor 6",
+			name: "Medellín",
 		},
 	];
 
 	const stats: statsProps[] = [
 		{
 			quantity: "2.7K+",
-			description: "Users",
+			description: "Creyentes",
 		},
 		{
 			quantity: "1.8K+",
-			description: "Subscribers",
+			description: "Miembros Bautilizados",
 		},
 		{
 			quantity: "112",
-			description: "Downloads",
+			description: "Celulas",
 		},
 		{
 			quantity: "4",
-			description: "Products",
+			description: "Iglesias",
 		},
 	];
 
@@ -81,71 +81,70 @@ export const useLandingPage = () => {
 	const featuresWorks: FeatureProps[] = [
 		{
 			icon: <MedalIcon />,
-			title: "Accessibility",
+			title: "Accesibilidad",
 			description:
-				"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
+				"Ir a lo largo del país, llevando el mensaje de salvación a cada rincón.",
 		},
 		{
 			icon: <MapIcon />,
-			title: "Community",
+			title: "Comunidad",
 			description:
-				"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
+				"Construir una comunidad unida y fuerte, donde todos se sientan bienvenidos.",
 		},
 		{
 			icon: <PlaneIcon />,
-			title: "Scalability",
+			title: "Crecimiento",
 			description:
-				"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
+				"Fomentar el crecimiento espiritual y personal de cada miembro de la iglesia.",
 		},
 		{
 			icon: <GiftIcon />,
-			title: "Gamification",
+			title: "Discipulado",
 			description:
-				"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
+				"Brindar un programa de discipulado efectivo y accesible para todos.",
 		},
 	];
 
-	const missionary: Missionary = {
+	const missionary: CountryMissionary = {
 		id: "1",
-		name: "Arnet Barreras Castillo",
-		age: 26,
-		mission: "Colombia Bogotá South Mission",
-		image: "https://avatars.githubusercontent.com/u/42655934?v=4",
-		role: "Missionary supervisor northern cone",
+		name: "Colombia",
+		mission: "Pasión por las almas",
+		image: "assets/flag-colombia.avif",
 		message:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+			"La misión de la iglesia es predicar el evangelio a toda criatura, y en Colombia estamos comprometidos con esta tarea.",
 	};
 
 	const featureList: string[] = [
-		"Dark/Light theme",
-		"Reviews",
-		"Features",
-		"Pricing",
-		"Contact form",
-		"Our team",
-		"Responsive design",
-		"Newsletter",
-		"Minimalist",
+		"Iglesia",
+		"Pastores",
+		"Misioneros",
+		"Eventos",
+		"Testimonios",
+		"Convivios",
+		"Encuentros",
+		"Retiros",
+		"Conferencias",
+		"Campañas",
 	];
 
 	const features: FeatureProps[] = [
 		{
-			title: "Responsive Design",
+			title: "Misioneros en Colombia",
 			description:
-				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
-			image: "/assets/growth.png",
+				"El Misionero Arnet Barreras Castillo y la hna. Miriam Chc, son los misioneros en Colombia. Ellos están trabajando en la ciudad de Bogotá y continuando con la obra en el país. Hasta lo último de la tierra. Cueste lo que cueste.",
+			image: "/assets/ma.jpg",
 		},
 		{
-			title: "Intuitive user interface",
+			title: "Pastores y Misioneros del Cono Norte",
 			description:
-				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
-			image: "/assets/looking-ahead.png",
+				"Convención nacional de Colombia, donde se reúnen pastores y misioneros del cono norte.",
+			image: "/assets/cgc.jpg",
 		},
 		{
-			title: "AI-Powered insights",
+			title: "Convención General 2024",
 			description:
-				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
-			image: "/assets/reflecting.png",
+				"Damos gracias a Dios por la oportunidad de servirle y de ser parte de esta gran familia.",
+			image: "/assets/cg.jpg",
 		},
 	];
 

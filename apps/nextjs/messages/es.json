@@ -5,12 +5,13 @@
         "profile": "Profile"
     },
     "LandingPage": {
-        "title": "Iafcj Colombia",
+        "title": "IAFCJ Colombia",
         "headquarters": "Sedes",
         "events": "Eventos",
         "ministries": "Ministros",
         "faq": "Contacto",
         "evangelists": "Evangelistas",
+        "testimonies": "Testimonios",
         "signUp": "Registrarse",
         "signIn": "Iniciar Sesión",
         "hero": {

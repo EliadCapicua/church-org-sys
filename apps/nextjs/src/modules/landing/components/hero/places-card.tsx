@@ -22,7 +22,7 @@ export default function PlacesCard({ places }: PlacesCardProps) {
 	};
 
 	return (
-		<Card className="absolute top-[150px] left-[50px] w-72  drop-shadow-xl shadow-black/10 dark:shadow-white/10">
+		<Card className="absolute top-[250px] left-[50px] w-72 drop-shadow-xl shadow-black/10 dark:shadow-white/10">
 			<CardHeader>
 				<CardTitle className="flex item-center justify-between">
 					Sedes

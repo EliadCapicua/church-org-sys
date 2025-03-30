@@ -10,21 +10,21 @@ interface ServiceProps {
 
 const serviceList: ServiceProps[] = [
 	{
-		title: "Code Collaboration",
+		title: "Ganar",
 		description:
-			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
+			"Evangelizar de una manera eficaz y con el poder del Espíritu Santo.",
 		icon: <ChartIcon />,
 	},
 	{
-		title: "Project Management",
+		title: "Consolidar",
 		description:
-			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
+			"Ayudar a los nuevos creyentes a crecer en su fe y en su relación con Dios.",
 		icon: <WalletIcon />,
 	},
 	{
-		title: "Task Automation",
+		title: "Disipular",
 		description:
-			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
+			"Enseñar a los nuevos creyentes a vivir una vida cristiana y a seguir a Cristo.",
 		icon: <MagnifierIcon />,
 	},
 ];
@@ -36,14 +36,17 @@ export default function Services() {
 				<div>
 					<h2 className="text-3xl md:text-4xl font-bold">
 						<span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-							Client-Centric{" "}
+							Visión y Misión{" "}
 						</span>
-						Services
+						de la iglesia
 					</h2>
 
-					<p className="text-muted-foreground text-xl mt-4 mb-8 ">
-						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis
-						dolor.
+					<p className="text-muted-foreground text-base mt-4 mb-8 italic">
+						"Y crecía la palabra del Señor, y el número de los discípulos se
+						multiplicaba grandemente en Jerusalén; también muchos de los
+						sacerdotes obedecían a la fe."
+						<br />
+						Hechos 6:7
 					</p>
 
 					<div className="flex flex-col gap-8">

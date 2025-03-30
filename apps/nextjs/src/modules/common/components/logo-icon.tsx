@@ -1,13 +1,18 @@
 import Image from "next/image";
 
-export default function LogoIcon() {
+interface LogoIconProps {
+	width?: number;
+	height?: number;
+}
+
+export default function LogoIcon({ width = 32, height = 32 }: LogoIconProps) {
 	return (
 		<Image
 			src="/icon.png"
 			alt="Logo Icon"
-			width={32}
-			height={32}
-			className="rounded-full w-8 h-8 object-cover"
+			width={width}
+			height={height}
+			className="rounded-full object-cover"
 		/>
 	);
 }

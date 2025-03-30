@@ -1,9 +1,7 @@
-export type Missionary = {
+export type CountryMissionary = {
 	id: string;
 	name: string;
-	age: number;
 	mission: string;
 	image: string;
-	role: string;
 	message: string;
 };

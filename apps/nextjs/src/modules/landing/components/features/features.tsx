@@ -16,9 +16,9 @@ export default function Features() {
 	return (
 		<section id="features" className="container py-24 sm:py-32 space-y-8">
 			<h2 className="text-3xl lg:text-4xl font-bold md:text-center">
-				Many{" "}
+				Grandes{" "}
 				<span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-					Great Features
+					Eventos
 				</span>
 			</h2>
 
@@ -38,15 +38,16 @@ export default function Features() {
 						<CardHeader>
 							<CardTitle>{title}</CardTitle>
 						</CardHeader>
-						<CardContent>{description}</CardContent>
-						<CardFooter>
+						<CardContent className="text-sm h-32">{description}</CardContent>
+						<CardFooter className="flex justify-center items-center">
 							{image && (
 								<Image
 									src={image}
 									alt="About feature"
-									width={200}
-									height={200}
-									className="w-[200px] lg:w-[300px] mx-auto"
+									width={400}
+									height={400}
+									className="w-[300px] h-[250px] lg:w-[300px] object-cover rounded-lg"
+									loading="lazy"
 								/>
 							)}
 						</CardFooter>
