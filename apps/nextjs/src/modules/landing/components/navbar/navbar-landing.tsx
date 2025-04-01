@@ -9,6 +9,7 @@ import LogoIcon from "common/components/logo-icon";
 import Link from "next/link";
 import NavbarRoutes from "./navbar-routes";
 import NavbarSheet from "./navbar-sheet";
+import { ThemeToggle } from "@acme/ui/theme";
 
 export default function NavbarLanding() {
 	const routes: RouteProps[] = [
@@ -45,7 +46,9 @@ export default function NavbarLanding() {
 								className="ml-2 font-bold text-xl flex items-center text-center gap-2"
 							>
 								<LogoIcon />
-								<h1 className="hidden md:inline">IAFCJ Colombia</h1>
+								<h1 className="bg-[linear-gradient(120deg,#FFD700_0%,#FFD700_33%,#0033A0_33%,#0033A0_66%,#CE1126_66%,#CE1126_100%)] bg-clip-text text-transparent inline-block">
+									IAFCJ Colombia
+								</h1>{" "}
 							</Link>
 						</NavigationMenuItem>
 
@@ -61,6 +64,7 @@ export default function NavbarLanding() {
 
 						<div className="hidden md:flex gap-2">
 							{/* <SignInButton signIn={signIn} /> */}
+							<ThemeToggle />
 						</div>
 					</NavigationMenuList>
 				</NavigationMenu>

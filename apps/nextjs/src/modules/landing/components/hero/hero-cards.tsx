@@ -20,7 +20,7 @@ export default function HeroCards({ places, missionary }: HeroCardsProps) {
 	return (
 		<div className="hidden lg:flex flex-row flex-wrap gap-8 relative w-[700px] h-[500px]">
 			{/* Testimonial */}
-			<Card className="absolute w-[340px] -top-[25px] h-60 drop-shadow-xl shadow-black/10 dark:shadow-white/10">
+			<Card className="absolute w-[340px] -top-[25px] h-56 drop-shadow-xl shadow-black/10 dark:shadow-white/10">
 				<CardHeader className="mt-8 flex justify-center items-center pb-2">
 					<img
 						src="assets/mexican-flag.jpg"
@@ -31,7 +31,7 @@ export default function HeroCards({ places, missionary }: HeroCardsProps) {
 						<CardTitle className="text-lg">IAFCJ Org</CardTitle>
 					</div>
 				</CardHeader>
-				<CardContent className="text-center pb-2 text-sm">
+				<CardContent className="text-center pb-1 text-sm">
 					<p>Sede Central: México</p>
 				</CardContent>
 				<CardFooter className="flex justify-center items-center mb-0 pb-0">
@@ -53,7 +53,7 @@ export default function HeroCards({ places, missionary }: HeroCardsProps) {
 			<PlacesCard places={places} />
 
 			{/* Service */}
-			<Card className="absolute w-[300px] right-[20px] -bottom-[40px] drop-shadow-xl shadow-black/10 dark:shadow-white/10">
+			<Card className="absolute w-[300px] right-[20px] -bottom-[20px] drop-shadow-xl shadow-black/10 dark:shadow-white/10">
 				<CardHeader className="space-y-1 flex md:flex-row justify-start items-start gap-4">
 					<div>
 						<CardTitle>Hasta lo último de la Tierra</CardTitle>

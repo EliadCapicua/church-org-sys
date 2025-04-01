@@ -22,7 +22,7 @@ export default function PlacesCard({ places }: PlacesCardProps) {
 	};
 
 	return (
-		<Card className="absolute top-[250px] left-[50px] w-72 drop-shadow-xl shadow-black/10 dark:shadow-white/10">
+		<Card className="absolute top-[215px] left-[50px] w-72 drop-shadow-xl shadow-black/10 dark:shadow-white/10">
 			<CardHeader>
 				<CardTitle className="flex item-center justify-between">
 					Sedes
@@ -42,7 +42,7 @@ export default function PlacesCard({ places }: PlacesCardProps) {
 					Explorar
 				</Button>
 			</CardContent>
-			<hr className="w-4/5 m-auto mb-4" />
+			<hr className="w-4/5 m-auto mb-2" />
 			<CardFooter className="flex">
 				<div className="space-y-1">
 					{places.map((place: string) => (
