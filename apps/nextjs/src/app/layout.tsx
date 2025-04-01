@@ -20,6 +20,9 @@ export const metadata: Metadata = {
 	),
 	title: "Iafcj Colombia",
 	description: "Iafcj Colombia",
+	icons: {
+		icon: "/icon.png",
+	},
 	openGraph: {
 		title: "Iafcj Colombia",
 		description: "Iafcj Colombia",

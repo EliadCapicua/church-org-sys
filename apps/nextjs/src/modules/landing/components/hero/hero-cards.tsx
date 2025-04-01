@@ -1,6 +1,5 @@
-import { socialIcon } from "@/lib/utils/icons";
+import LogoIcon from "@/modules/common/components/logo-icon";
 import type { CountryMissionary } from "@/modules/common/types/users";
-import { buttonVariants } from "@acme/ui/button";
 import {
 	Card,
 	CardContent,
@@ -21,7 +20,7 @@ export default function HeroCards({ places, missionary }: HeroCardsProps) {
 	return (
 		<div className="hidden lg:flex flex-row flex-wrap gap-8 relative w-[700px] h-[500px]">
 			{/* Testimonial */}
-			<Card className="absolute w-[340px] -top-[15px] drop-shadow-xl shadow-black/10 dark:shadow-white/10">
+			<Card className="absolute w-[340px] -top-[25px] h-60 drop-shadow-xl shadow-black/10 dark:shadow-white/10">
 				<CardHeader className="mt-8 flex justify-center items-center pb-2">
 					<img
 						src="assets/mexican-flag.jpg"
@@ -33,20 +32,16 @@ export default function HeroCards({ places, missionary }: HeroCardsProps) {
 					</div>
 				</CardHeader>
 				<CardContent className="text-center pb-2 text-sm">
-					<p>Somos parte de la iglesia IAFCJ, una organización cristiana.</p>
+					<p>Sede Central: México</p>
 				</CardContent>
-				<CardFooter className="flex justify-center items-center gap-2">
+				<CardFooter className="flex justify-center items-center mb-0 pb-0">
 					<a
 						rel="noreferrer noopener"
 						href="https://iafcj.org/"
 						target="_blank"
-						className={buttonVariants({
-							variant: "ghost",
-							size: "sm",
-						})}
 					>
 						<span className="sr-only">iafcj icon</span>
-						{socialIcon("iafcj")}
+						<LogoIcon width={80} height={80} />
 					</a>
 				</CardFooter>
 			</Card>
@@ -58,15 +53,12 @@ export default function HeroCards({ places, missionary }: HeroCardsProps) {
 			<PlacesCard places={places} />
 
 			{/* Service */}
-			<Card className="absolute w-[350px] -right-[20px] -bottom-[30px] drop-shadow-xl shadow-black/10 dark:shadow-white/10">
+			<Card className="absolute w-[300px] right-[20px] -bottom-[40px] drop-shadow-xl shadow-black/10 dark:shadow-white/10">
 				<CardHeader className="space-y-1 flex md:flex-row justify-start items-start gap-4">
-					<div className="mt-1 bg-primary/20 p-1 rounded-2xl">
-						{/* <LightBulbIcon /> */}
-					</div>
 					<div>
 						<CardTitle>Hasta lo último de la Tierra</CardTitle>
 						<CardDescription className="text-sm mt-2">
-							<p>
+							<p className="text-justify">
 								La Gran Comisión es el mandato de Jesús a sus seguidores para ir
 								y hacer discípulos de todas las naciones, predicando el
 								evangelio y bautizando en el nombre de Jesucristo

@@ -17,9 +17,9 @@ export const socialIcon = (iconName: string) => {
 				<Image
 					src="/icon.png"
 					alt="Logo Icon"
-					width={32}
-					height={32}
-					className="rounded-full object-cover w-8 h-8"
+					width={40}
+					height={40}
+					className="rounded-full object-cover w-16 h-16"
 				/>
 			);
 	}

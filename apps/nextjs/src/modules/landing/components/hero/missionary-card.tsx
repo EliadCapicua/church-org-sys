@@ -28,10 +28,10 @@ export default function MissionaryCard({ missionary }: MissionaryCardProps) {
 				</CardDescription>
 			</CardHeader>
 			<CardContent className="text-center pb-2 text-sm">
-				<p>{missionary.message}</p>
+				<p className="text-justify">{missionary.message}</p>
 			</CardContent>
 			<CardFooter className="flex justify-center items-center gap-2">
-				<LogoIcon width={100} height={100} />
+				<LogoIcon width={80} height={80} />
 			</CardFooter>
 		</Card>
 	);

@@ -31,7 +31,7 @@ export default function PlacesCard({ places }: PlacesCardProps) {
 					</Badge>
 				</CardTitle>
 				<CardDescription>
-					<p>
+					<p className="text-justify">
 						Encuentra la sede más cercana y únete a nuestra familia espiritual.
 						¡Te esperamos con los brazos abiertos! ❤️
 					</p>
@@ -48,7 +48,7 @@ export default function PlacesCard({ places }: PlacesCardProps) {
 					{places.map((place: string) => (
 						<span key={place} className="flex">
 							<Check className="text-green-500" size={20} />{" "}
-							<span className="ml-2 text-base">{place}</span>
+							<span className="ml-2 text-sm">{place}</span>
 						</span>
 					))}
 				</div>

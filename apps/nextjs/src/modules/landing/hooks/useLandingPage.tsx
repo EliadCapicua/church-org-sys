@@ -76,7 +76,7 @@ export const useLandingPage = () => {
 		},
 	];
 
-	const places = ["Bogotá", "Cali", "Garagoa", "Santa Marta"];
+	const places = ["Bogotá (Sede Central)", "Cali", "Garagoa", "Santa Marta"];
 
 	const featuresWorks: FeatureProps[] = [
 		{
