@@ -5,11 +5,11 @@ import {
 	NavigationMenuItem,
 	NavigationMenuList,
 } from "@acme/ui/navigation-menu";
+import { ThemeToggle } from "@acme/ui/theme";
 import LogoIcon from "common/components/logo-icon";
 import Link from "next/link";
 import NavbarRoutes from "./navbar-routes";
 import NavbarSheet from "./navbar-sheet";
-import { ThemeToggle } from "@acme/ui/theme";
 
 export default function NavbarLanding() {
 	const routes: RouteProps[] = [

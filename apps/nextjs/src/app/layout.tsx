@@ -19,13 +19,14 @@ export const metadata: Metadata = {
 			: "http://localhost:3000",
 	),
 	title: "Iafcj Colombia",
-	description: "Iafcj Colombia",
+	description: "Iglesia Apostolica de la fe en Cristo Jesus Colombia",
 	icons: {
-		icon: "/icon.png",
+		icon: "/favicon.ico",
+		shortcut: "/icon.png",
 	},
 	openGraph: {
 		title: "Iafcj Colombia",
-		description: "Iafcj Colombia",
+		description: "Iglesia Apostolica de la fe en Cristo Jesus Colombia",
 		url: "https://www.iafcj.co",
 		siteName: "Iafcj Colombia",
 		type: "website",
@@ -38,6 +39,14 @@ export const metadata: Metadata = {
 				height: 630,
 			},
 		],
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Iafcj Colombia",
+		description: "Iglesia Apostolica de la fe en Cristo Jesus Colombia",
+		images: ["https://www.iafcj.co/icon.png"],
+		site: "@iafcjco",
+		creator: "@iafcjco",
 	},
 };
 
@@ -58,10 +67,6 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 
 	return (
 		<html lang={locale} suppressHydrationWarning>
-			<head>
-				<link rel="icon" href="/favicon.ico" sizes="any" />
-				<link rel="icon" type="image/png" href="/icon.png" />
-			</head>
 			<body
 				className={cn(
 					"h-screen max-h-screen overflow-hidden bg-background font-inter text-foreground antialiased",
